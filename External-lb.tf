@@ -36,5 +36,5 @@ resource "google_compute_region_health_check" "hc" {
     port = "80"
   }
 }
-
+}
 
