@@ -17,10 +17,20 @@ resource "google_compute_region_backend_service" "backend" {
 }
 resource "google_compute_region_health_check" "hc" {
   provider           = google
-  name               = "check-website-backend"
-  check_interval_sec = 1
-  timeout_sec        = 1
+  name        = "http-health-check"
+  description = "Health check via http"
   region             = "us-central1"
+  timeout_sec         = 1
+  check_interval_sec  = 1
+  healthy_threshold   = 4
+  unhealthy_threshold = 5
+
+  http_health_check {
+    port_name          = "health-check-port"
+    port_specification = "USE_NAMED_PORT"
+    request_path       = "/healthcheck"
+    proxy_header       = "NONE"
+    response           = "I_AM_HEALTHY"
 
   tcp_health_check {
     port = "80"
