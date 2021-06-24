@@ -31,10 +31,6 @@ resource "google_compute_region_health_check" "hc" {
     request_path       = "/healthcheck"
     proxy_header       = "NONE"
     response           = "I_AM_HEALTHY"
-
-  tcp_health_check {
-    port = "80"
   }
-}
 }
 
