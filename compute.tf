@@ -5,7 +5,7 @@ resource "google_compute_instance" "default" {
   machine_type = "e2-medium"
   zone         = "us-central1-a"
 
-  tags = ["foo", "bar"]
+  tags = ["foo1", "bar1"]
 
   boot_disk {
     initialize_params {
@@ -27,7 +27,7 @@ resource "google_compute_instance" "default" {
   }
 
   metadata = {
-    foo = "bar"
+    foo = "bar1"
   }
 
   metadata_startup_script = "echo hi > /test.txt"
@@ -39,7 +39,7 @@ resource "google_compute_instance" "default" {
   machine_type = "e2-medium"
   zone         = "us-central1-a"
 
-  tags = ["foo", "bar"]
+  tags = ["foo2", "bar2"]
 
   boot_disk {
     initialize_params {
@@ -61,7 +61,7 @@ resource "google_compute_instance" "default" {
   }
 
   metadata = {
-    foo = "bar"
+    foo = "bar2"
   }
 
   metadata_startup_script = "echo hi > /test.txt"
