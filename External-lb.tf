@@ -12,7 +12,7 @@ resource "google_compute_region_backend_service" "backend" {
   load_balancing_scheme = "EXTERNAL"
   health_checks         = [google_compute_region_health_check.hc.id]
   backend {
-    group = google_compute_global_network_endpoint_group.external_proxy.id
+    group = google_compute_instance_group.test_grp.id
   }
 }
 resource "google_compute_region_health_check" "hc" {
