@@ -47,7 +47,7 @@ resource "google_compute_instance" "default1" {
     foo = "bar1"
   }
 
- metadata_startup_script = "yum install httpd -y;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo WEBSERVER_1 > /var/www/html/healthcheck"
+ metadata_startup_script = "yum install httpd -y;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo WEBSERVER_1 > /var/www/html/webserver;echo I_AM_HEALTHY > /var/www/html/healthcheck"
   //metadata_startup_script = "echo hi > /test.txt"
 }
 
@@ -81,7 +81,7 @@ resource "google_compute_instance" "default2" {
     foo = "bar2"
   }
 
-   metadata_startup_script = "yum install httpd -y;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo WEBSERVER_2 > /var/www/html/healthcheck"
+   metadata_startup_script = "yum install httpd -y;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo WEBSERVER_2 > /var/www/html/webserver;echo I_AM_HEALTHY > /var/www/html/healthcheck"
   //metadata_startup_script = "echo hi > /test.txt"
 
 }
