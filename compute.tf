@@ -1,7 +1,4 @@
-resource "google_service_account" "default" {
-  account_id   = "qwiklabs-gcp-00-5aceec377a09_service_account_id"
-  display_name = "Service Account"
-}
+
 
 resource "google_compute_instance" "default" {
   name         = "test"
@@ -35,9 +32,4 @@ resource "google_compute_instance" "default" {
 
   metadata_startup_script = "echo hi > /test.txt"
 
-  service_account {
-    # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-    email  = google_service_account.default.email
-    scopes = ["cloud-platform"]
-  }
 }
