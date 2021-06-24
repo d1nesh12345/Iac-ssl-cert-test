@@ -1,6 +1,6 @@
 
 
-resource "google_compute_instance" "default" {
+resource "google_compute_instance" "default1" {
   name         = "test1"
   machine_type = "e2-medium"
   zone         = "us-central1-a"
@@ -34,7 +34,7 @@ resource "google_compute_instance" "default" {
 
 }
 
-resource "google_compute_instance" "default" {
+resource "google_compute_instance" "default2" {
   name         = "test2"
   machine_type = "e2-medium"
   zone         = "us-central1-a"
