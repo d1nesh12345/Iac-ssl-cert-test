@@ -1,4 +1,21 @@
+resource "google_compute_instance_group" "test_grp" {
+  name      = "test-instance-group"
+  zone      = "us-central1-a"
+  instances = [google_compute_instance.default1.id, google_compute_instance.default1.id]
+  named_port {
+    name = "http"
+    port = "8080"
+  }
 
+  named_port {
+    name = "https"
+    port = "8443"
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
 
 resource "google_compute_instance" "default1" {
   name         = "test1"
