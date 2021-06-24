@@ -1,7 +1,7 @@
 resource "google_compute_instance_group" "test_grp" {
   name      = "test-instance-group"
   zone      = "us-central1-a"
-  instances = [google_compute_instance.t1.id, google_compute_instance.t2.id]
+  instances = [google_compute_instance.default1.id, google_compute_instance.default2.id]
   named_port {
     name = "http"
     port = "80"
@@ -17,7 +17,7 @@ resource "google_compute_instance_group" "test_grp" {
   }
 }
 
-resource "google_compute_instance" "t1" {
+resource "google_compute_instance" "default1" {
   name         = "test1"
   machine_type = "e2-medium"
   zone         = "us-central1-a"
@@ -51,7 +51,7 @@ resource "google_compute_instance" "t1" {
   metadata_startup_script = "echo hi > /test.txt"
 }
 
-resource "google_compute_instance" "t2" {
+resource "google_compute_instance" "default2" {
   name         = "test2"
   machine_type = "e2-medium"
   zone         = "us-central1-a"
