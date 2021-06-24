@@ -1,12 +1,12 @@
 resource "google_compute_forwarding_rule" "default" {
-  provider              = google-beta
+  provider              = google
   name                  = "website-forwarding-rule"
   region                = "us-central1"
   port_range            = 80
   backend_service       = google_compute_region_backend_service.backend.id
 }
 resource "google_compute_region_backend_service" "backend" {
-  provider              = google-beta
+  provider              = google
   name                  = "website-backend"
   region                = "us-central1"
   load_balancing_scheme = "EXTERNAL"
@@ -16,7 +16,7 @@ resource "google_compute_region_backend_service" "backend" {
   }
 }
 resource "google_compute_region_health_check" "hc" {
-  provider           = google-beta
+  provider           = google
   name               = "check-website-backend"
   check_interval_sec = 1
   timeout_sec        = 1
