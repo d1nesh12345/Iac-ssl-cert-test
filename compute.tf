@@ -60,7 +60,7 @@ resource "google_compute_instance" "default2" {
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-9"
+      image = "rhel-cloud/rhel-7"
     }
   }
 
