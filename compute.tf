@@ -47,8 +47,8 @@ resource "google_compute_instance" "default1" {
     foo = "bar1"
   }
 
-  //metadata_startup_script = "yum install httpd -y;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo hi > /test.txt"
-  metadata_startup_script = "echo hi > /test.txt"
+ metadata_startup_script = "yum install httpd -y;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo hi > /test.txt"
+  //metadata_startup_script = "echo hi > /test.txt"
 }
 
 resource "google_compute_instance" "default2" {
@@ -81,7 +81,7 @@ resource "google_compute_instance" "default2" {
     foo = "bar2"
   }
 
-  //metadata_startup_script = "yum install httpd -y;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo hi > /test.txt"
-  metadata_startup_script = "echo hi > /test.txt"
+   metadata_startup_script = "yum install httpd -y;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo hi > /test.txt"
+  //metadata_startup_script = "echo hi > /test.txt"
 
 }
