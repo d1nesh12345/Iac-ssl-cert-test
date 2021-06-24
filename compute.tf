@@ -17,7 +17,7 @@ resource "google_compute_instance_group" "test_grp" {
   }
 }
 
-resource "google_compute_instance" "default1" {
+resource "google_compute_instance" "test1" {
   name         = "test1"
   machine_type = "e2-medium"
   zone         = "us-central1-a"
@@ -51,7 +51,7 @@ resource "google_compute_instance" "default1" {
 
 }
 
-resource "google_compute_instance" "default2" {
+resource "google_compute_instance" "test2" {
   name         = "test2"
   machine_type = "e2-medium"
   zone         = "us-central1-a"
