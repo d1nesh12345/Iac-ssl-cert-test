@@ -22,7 +22,7 @@ resource "google_compute_instance" "default1" {
   machine_type = "e2-medium"
   zone         = "us-central1-a"
 
-  tags = ["foo1", "bar1"]
+  tags = ["foo1", "bar1", "allow-http"]
 
   boot_disk {
     initialize_params {
@@ -56,7 +56,7 @@ resource "google_compute_instance" "default2" {
   machine_type = "e2-medium"
   zone         = "us-central1-a"
 
-  tags = ["foo2", "bar2"]
+  tags = ["foo2", "bar2", "allow-http"]
 
   boot_disk {
     initialize_params {
