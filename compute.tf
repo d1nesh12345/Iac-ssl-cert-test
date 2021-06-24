@@ -47,7 +47,7 @@ resource "google_compute_instance" "test1" {
     foo = "bar1"
   }
 
-  metadata_startup_script = "metadata_startup_script = "yum install httpd;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo hi > /test.txt"
+  metadata_startup_script = "yum install httpd;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo hi > /test.txt"
 
 }
 
