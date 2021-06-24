@@ -3,8 +3,8 @@ resource "google_compute_instance_group" "webservers" {
   description = "Terraform test instance group"
 
   instances = [
-    google_compute_instance.test1.id,
-    google_compute_instance.test2.id,
+    google_compute_instance.test1,
+    google_compute_instance.test2,
   ]
 
   named_port {
