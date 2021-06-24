@@ -1,10 +1,10 @@
 resource "google_compute_instance_group" "test_grp" {
   name      = "test-instance-group"
   zone      = "us-central1-a"
-  instances = [google_compute_instance.test1.id, google_compute_instance.test2.id]
+  instances = [google_compute_instance.t1.id, google_compute_instance.t2.id]
   named_port {
     name = "http"
-    port = "8080"
+    port = "80"
   }
 
   named_port {
@@ -17,7 +17,7 @@ resource "google_compute_instance_group" "test_grp" {
   }
 }
 
-resource "google_compute_instance" "test1" {
+resource "google_compute_instance" "t1" {
   name         = "test1"
   machine_type = "e2-medium"
   zone         = "us-central1-a"
@@ -47,11 +47,11 @@ resource "google_compute_instance" "test1" {
     foo = "bar1"
   }
 
-  metadata_startup_script = "yum install httpd;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo hi > /test.txt"
+  metadata_startup_script = "yum install httpd -y;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo hi > /test.txt"
 
 }
 
-resource "google_compute_instance" "test2" {
+resource "google_compute_instance" "t2" {
   name         = "test2"
   machine_type = "e2-medium"
   zone         = "us-central1-a"
@@ -81,6 +81,6 @@ resource "google_compute_instance" "test2" {
     foo = "bar2"
   }
 
-  metadata_startup_script = "yum install httpd;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo hi > /test.txt"
+  metadata_startup_script = "yum install httpd -y;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo hi > /test.txt"
 
 }
