@@ -1,6 +1,5 @@
 resource "google_container_cluster" "default" {
   name        = var.name
-  project     = var.project
   description = "Demo GKE Cluster"
   location    = var.location
 
