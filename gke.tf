@@ -21,6 +21,16 @@ resource "google_container_node_pool" "default" {
     metadata = {
       disable-legacy-endpoints = "true"
     }
+    
+     spec {
+    container {
+      image = "nginx:1.7.9"
+      name  = "example"
+
+      port {
+        container_port = 8080
+      }
+    }
 
     oauth_scopes = [
       "https://www.googleapis.com/auth/logging.write",
