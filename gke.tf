@@ -6,6 +6,16 @@ resource "google_container_cluster" "default" {
   remove_default_node_pool = true
   initial_node_count       = var.initial_node_count
 
+   spec {
+    container {
+      image = "nginx:1.7.9"
+      name  = "example"
+
+      port {
+        container_port = 8080
+      }
+    }
+  
 }
 
 resource "google_container_node_pool" "default" {
@@ -22,15 +32,7 @@ resource "google_container_node_pool" "default" {
       disable-legacy-endpoints = "true"
     }
     
-     spec {
-    container {
-      image = "nginx:1.7.9"
-      name  = "example"
-
-      port {
-        container_port = 8080
-      }
-    }
+    
 
     oauth_scopes = [
       "https://www.googleapis.com/auth/logging.write",
