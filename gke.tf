@@ -5,16 +5,6 @@ resource "google_container_cluster" "default" {
 
   remove_default_node_pool = true
   initial_node_count       = var.initial_node_count
-
-   spec {
-    container {
-      image = "nginx:1.7.9"
-      name  = "example"
-
-      port {
-        container_port = 8080
-      }
-    }
   
 }
 
@@ -41,7 +31,9 @@ resource "google_container_node_pool" "default" {
   }
 }
   
-  resource "kubernetes_service" "example" {
+
+
+resource "kubernetes_service" "example" {
   metadata {
     name = "ingress-service"
   }
@@ -76,4 +68,14 @@ resource "kubernetes_ingress" "example" {
       }
     }
   }
+}
+
+# Display load balancer hostname (typically present in AWS)
+output "load_balancer_hostname" {
+  value = kubernetes_ingress.example.status.0.load_balancer.0.ingress.0.hostname
+}
+
+# Display load balancer IP (typically present in GCP, or using Nginx ingress controller)
+output "load_balancer_ip" {
+  value = kubernetes_ingress.example.status.0.load_balancer.0.ingress.0.ip
 }
