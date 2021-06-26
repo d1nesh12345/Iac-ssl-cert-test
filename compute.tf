@@ -47,7 +47,7 @@ resource "google_compute_instance" "default1" {
     foo = "bar1"
   }
 
- metadata_startup_script = "yum install httpd -y;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo WEBSERVER_1 > /var/www/html/webserver;echo I_AM_HEALTHY > /var/www/html/healthcheck;yum install wget -y; wget https://github.com/d1nesh12345/Iac-demo/blob/main/sample-website.zip;mv sample-website.zip /var/www/html/.;unzip /var/www/html/sample-website.zip"
+ metadata_startup_script = "yum install httpd -y;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo WEBSERVER_1 > /var/www/html/webserver;echo I_AM_HEALTHY > /var/www/html/healthcheck;yum install wget -y; yum install unzip -y;wget https://github.com/d1nesh12345/Iac-demo/blob/main/sample-website.zip;mv sample-website.zip /var/www/html/.;unzip /var/www/html/sample-website.zip"
   //metadata_startup_script = "echo hi > /test.txt"
 }
 
@@ -81,7 +81,7 @@ resource "google_compute_instance" "default2" {
     foo = "bar2"
   }
 
-   metadata_startup_script = "yum install httpd -y;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo WEBSERVER_2 > /var/www/html/webserver;echo I_AM_HEALTHY > /var/www/html/healthcheck;yum install wget -y; wget https://github.com/d1nesh12345/Iac-demo/blob/main/sample-website.zip;mv sample-website.zip /var/www/html/.;unzip /var/www/html/sample-website.zip"
+   metadata_startup_script = "yum install httpd -y;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo WEBSERVER_2 > /var/www/html/webserver;echo I_AM_HEALTHY > /var/www/html/healthcheck;yum install wget -y;yum install unzip -y; wget https://github.com/d1nesh12345/Iac-demo/blob/main/sample-website.zip;mv sample-website.zip /var/www/html/.;unzip /var/www/html/sample-website.zip"
   //metadata_startup_script = "echo hi > /test.txt"
 
 }
