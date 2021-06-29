@@ -15,10 +15,7 @@ resource "google_compute_instance_group" "test_grp" {
   lifecycle {
     create_before_destroy = true
   }
-  
-  provisioner "local-exec" {
-      command = "sleep 45"
-  }
+ 
 
 }
 
@@ -56,6 +53,10 @@ resource "google_compute_instance" "default1" {
  metadata_startup_script = "yum install httpd -y;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo WEBSERVER_1 > /var/www/html/webserver;echo I_AM_HEALTHY > /var/www/html/healthcheck;yum install git -y;mkdir /var/www/html/site;git clone https://github.com/d1nesh12345/Iac-site --branch=master /var/www/html/site"
   //metadata_startup_script = "echo hi > /test.txt"
 
+// WAIT FOR 45 secs before moving to next step
+  provisioner "local-exec" {
+      command = "sleep 45"
+  }
 }
 
 resource "google_compute_instance" "default2" {
@@ -90,7 +91,9 @@ resource "google_compute_instance" "default2" {
 
     metadata_startup_script = "yum install httpd -y;systemctl start httpd; systemctl enable httpd.service;firewall-cmd --add-service=http --permanent;firewall-cmd --reload;echo WEBSERVER_1 > /var/www/html/webserver;echo I_AM_HEALTHY > /var/www/html/healthcheck;yum install git -y;mkdir /var/www/html/site;git clone https://github.com/d1nesh12345/Iac-site --branch=master /var/www/html/site"
  //metadata_startup_script = "echo hi > /test.txt"
-
-  
+// WAIT FOR 45 secs before moving to next step
+    provisioner "local-exec" {
+      command = "sleep 45"
+  }
  
 }
