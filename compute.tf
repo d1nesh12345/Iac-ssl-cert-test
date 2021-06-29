@@ -17,6 +17,11 @@ resource "google_compute_instance_group" "test_grp" {
   }
 }
 
+resource "vsphere_virtual_machine" "vpshere_build_machine" {
+  provisioner "local-exec" {
+      command = "sleep 45"
+  }
+
 resource "google_compute_instance" "default1" {
   name         = "test1"
   machine_type = "e2-medium"
