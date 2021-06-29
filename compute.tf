@@ -1,7 +1,7 @@
 resource "google_compute_instance_group" "test_grp" {
   name      = "test-instance-group"
   zone      = "us-central1-a"
-  instances = [google_compute_instance.default1.id.self_link, google_compute_instance.default2.id.self_link]
+  instances = [google_compute_instance.default1.self_link, google_compute_instance.default2.self_link]
   named_port {
     name = "http"
     port = "80"
