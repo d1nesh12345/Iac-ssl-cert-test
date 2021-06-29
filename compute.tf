@@ -15,12 +15,13 @@ resource "google_compute_instance_group" "test_grp" {
   lifecycle {
     create_before_destroy = true
   }
-}
-
-resource "vsphere_virtual_machine" "vpshere_build_machine" {
+  
   provisioner "local-exec" {
       command = "sleep 45"
   }
+
+}
+
 
 resource "google_compute_instance" "default1" {
   name         = "test1"
