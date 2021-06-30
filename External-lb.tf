@@ -41,6 +41,9 @@ resource "google_compute_backend_service" "default" {
   timeout_sec = 10
 
   health_checks = [google_compute_http_health_check.default.self_link]
+  backend {
+    group = google_compute_instance_group.test_grp.self_link
+  }
 }
 
 resource "google_compute_http_health_check" "default" {
