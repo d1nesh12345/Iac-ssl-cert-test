@@ -1,5 +1,5 @@
 provider "google" {
-  project     =  "qwiklabs-gcp-03-d1f843201a6e"
+  project     =  "qwiklabs-gcp-02-a36f28477674"
   credentials = "${file("/tmp/key.json")}"
   region      = "us-central1"
   zone        = "us-central1-c"
