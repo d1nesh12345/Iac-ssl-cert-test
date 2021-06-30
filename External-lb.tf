@@ -70,7 +70,6 @@ resource "google_dns_managed_zone" "zone" {
 resource "google_compute_global_forwarding_rule" "default" {
   name       = "forwarding-rule"
   target     = google_compute_target_https_proxy.default.self_link
-  region     = "us-central1"
   port_range = 443
 }
 
