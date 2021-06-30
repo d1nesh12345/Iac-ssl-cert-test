@@ -51,13 +51,6 @@ resource "google_compute_http_health_check" "default" {
   check_interval_sec  = 1
   healthy_threshold   = 4
   unhealthy_threshold = 5
-
-  http_health_check {
-    port_specification = "USE_NAMED_PORT"
-    request_path       = "/healthcheck"
-    proxy_header       = "NONE"
-    response           = "I_AM_HEALTHY"
-  }
 }
 
 resource "google_dns_managed_zone" "zone" {
