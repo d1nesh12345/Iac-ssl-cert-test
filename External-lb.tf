@@ -47,14 +47,12 @@ resource "google_compute_http_health_check" "default" {
   provider           = google
   name        = "http-health-check"
   description = "Health check via http"
-  region             = "us-central1"
   timeout_sec         = 1
   check_interval_sec  = 1
   healthy_threshold   = 4
   unhealthy_threshold = 5
 
   http_health_check {
-    port_name          = "health-check-port"
     port_specification = "USE_NAMED_PORT"
     request_path       = "/healthcheck"
     proxy_header       = "NONE"
